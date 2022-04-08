@@ -42,9 +42,16 @@ body{
     color:#1ebba3;
 }
 
-/*--landing--*/
+/* --landing--*/
 .home-inner{
     background-image: url(img/computers.png);
+}
+
+.video-background{
+    position:relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: (0,0,0,0.2)!important;
 }
 .caption{
     width:100%;
@@ -74,6 +81,7 @@ body{
     border-width: medium;
     padding:.6rem 1.3rem;
     font-size: 1.1rem;
+    background-color: aqua;
 }
 
 /*--course--*/
@@ -115,7 +123,7 @@ body{
 }
 h3.heading{
     font-size:1.9rem;
-    font: weight 700px;
+    font-weight:  700px;
     text-transform: uppercase;
     margin-bottom: 1.9rem;
 
@@ -143,12 +151,12 @@ font-size:1.1rem;
 }
 /*--resources--*/
 .fixed {
-    background-image: url(img/apple.png);
+    background-image: url(img/cc.jpg);
     z-index: -1;
 }
 .dark{
     background-color: rgba(0,0.0.0.75);
-    color:white;
+    color:whitesmoke;
     padding: 7rem 2rem;
 }
 .fixed-background h3{
@@ -173,6 +181,29 @@ blockquote .svg-inline--fa{
 .cliens-hr{
     border-top:.05rem solid #1ebba3;
 }
+.bk{
+    color:darkblue;
+    font-weight: 500;
+    font-size: larger;
+    text-transform: uppercase;
+}
+.portfolio img{
+  padding-bottom: 2rem;
+    max-width:90%;
+    transition:transform .5s ease;
+}
+.row.no-padding [class*=col-]{
+    padding:0;
+}
+.portfolio img:hover{
+   transform:scale(1.1);
+   cursor:zoom-in; 
+}
+.portfolio{
+   overflow:hidden; 
+}
+
+
 footer{
     background-color: #40474e;
     color:white;
