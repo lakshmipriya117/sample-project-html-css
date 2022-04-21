@@ -50,7 +50,7 @@ body{
 .video-background{
     position:relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh;
     background-color: (0,0,0,0.2)!important;
 }
 .caption{
@@ -59,17 +59,113 @@ body{
     position: absolute;
     top: 38%;
     z-index: 1;
-    color: aliceblue;
+    color: rgb(224, 228, 212);
     text-transform: uppercase;
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: .3rem;
+    text-shadow: .1rem .1rem .8rem black;
 
 }
+.carousel-item{
+    height:90vh;
+}
+
 .caption h1{
     font-size: 3.8rem;
     font-weight: 700;
     letter-spacing: .3rem;
     text-shadow: .1rem .1rem .8rem black;
     padding-bottom: 1rem;
+    /* -webkit-text-stroke:0.3vw rosybrown; */
 }
+
+/* fliping anim */
+.flipY {
+  animation-name: spin, depth;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+  
+}
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-360deg);
+  }
+}
+@keyframes depth {
+  0% {
+    text-shadow: 0 0 black;
+  }
+  25% {
+    text-shadow: 1px 0 black, 2px 0 black, 3px 0 black, 4px 0 black, 5px 0 black;
+  }
+  50% {
+    text-shadow: 0 0 black;
+  }
+  75% {
+    text-shadow: -1px 0 black, -2px 0 black, -3px 0 black, -4px 0 black,
+      -5px 0 black;
+  }
+  100% {
+    text-shadow: 0 0 black;
+  }
+}
+
+/* come in */
+.come {
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+  font-size: 2rem;
+  padding-bottom: 1.6rem;
+}
+
+.come:first-of-type {    /* For increasing performance 
+                       ID/Class should've been used. 
+                       For a small demo 
+                       it's okaish for now */
+  animation: showup 7s infinite;
+}
+
+.come:last-of-type {
+  width:0px;
+  animation: reveal 7s infinite;
+}
+
+.come:last-of-type span {
+  margin-left:-355px;
+  animation: slidein 7s infinite;
+  font-size: 2rem;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:355px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:355px;}
+}
+
+
+
 .caption h3{
     font-size: 2rem;
     text-shadow: .1rem .1rem .5rem black;
@@ -93,6 +189,34 @@ body{
   .narrow h1 {
       font-size: 2.4rem;
     }
+    /* text ANIMATION */
+    .narrow h1
+{
+  background-image: linear-gradient(
+    -225deg,
+    #563ead 0%,
+    #27d6aa 29%,
+    #da225c 67%,
+    #caca21 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      /* font-size: 190px; */
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
   .btn-secondary {
     border-width: medium;
     border-radius: 0;
@@ -110,9 +234,55 @@ body{
     background-color: #189582;
     color: white;
   }
+/* fadein */
+h5 {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgb(51, 29, 148), #fff, rgb(125, 64, 204));
+  background-repeat: no-repeat;
+  background-size: 70%;
+  animation: animate 10s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
 
-
-  
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+/* fly in text */
+.lineUp {
+    animation: 3s anim-lineUp ease-out infinite;
+    font-size:1.3rem;
+    text-transform: uppercase;
+    padding-bottom: .4rem;
+    
+  }
+  @keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
   
 /*--feature--*/
 .jumbotron{
@@ -121,7 +291,11 @@ body{
     border-radius:0;
 
 }
-h3.heading{
+
+/* heading popin */
+
+
+.wavily{
     font-size:1.9rem;
     font-weight:  700px;
     text-transform: uppercase;
@@ -129,6 +303,28 @@ h3.heading{
 
 
 }
+.waviy {
+  position: relative;
+  
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size:1.9rem;
+  font-weight:  700px;
+  margin-bottom: 1.9rem;
+  color: rgb(82, 71, 71);
+  text-transform: uppercase;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i))
+  
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
+}
+
 .heading-underline{
     width: 3rem;
     height:.2rem;
@@ -149,6 +345,8 @@ h3.heading{
 font-size:1.1rem;
 
 }
+
+
 /*--resources--*/
 .fixed {
     background-image: url(img/cc.jpg);
@@ -168,7 +366,31 @@ margin-bottom: 2rem;
     margin-top: 1.5rem;
 
 }
-
+/* wave anim */
+.wave {
+  position: relative;
+  /* -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2)); */
+  font-size: 30px;
+  margin-bottom: 2rem;
+}
+.wave span {
+  /* font-family: 'Alfa Slab One', cursive; */
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  animation: wave 1s infinite;
+  animation-delay: calc(.1s * var(--i));
+  
+}
+@keyframes wave {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}
 /*--client--*/
 .client img{
     width:100%;
@@ -182,11 +404,38 @@ blockquote .svg-inline--fa{
     border-top:.05rem solid #1ebba3;
 }
 .bk{
-    color:darkblue;
-    font-weight: 500;
-    font-size: larger;
-    text-transform: uppercase;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    
+    padding-bottom: 1rem;
+    color: #5691cc;
 }
+.flipX {
+  animation: 4s anim-flipX ease infinite;
+  font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    
+    padding-bottom: 1rem;
+    color: #7c8c9c;
+}
+@keyframes anim-flipX {
+  0% {
+    opacity: 0;
+    transform: rotateX(90def);
+  }
+  50% {
+    opacity: 1;
+    transform: rotateX(720deg);
+  }
+  100% {
+    /* animate nothing to pause animation at the end */
+    opacity: 1;
+    transform: rotateX(720deg);
+  }
+}
+  /* portfolio */
 .portfolio img{
   padding-bottom: 2rem;
     max-width:90%;
